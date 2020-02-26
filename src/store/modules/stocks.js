@@ -7,10 +7,12 @@ const mutations = {
   SET_STOCKS(state, stocks) {
     state.stocks = stocks;
   },
+  // eslint-disable-next-line no-unused-vars
   RND_STOCKS(state) {}
 };
 
 const actions = {
+  // eslint-disable-next-line no-unused-vars
   buyStock: ({ commit }, order) => {
     commit();
   },
