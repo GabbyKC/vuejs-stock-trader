@@ -41,7 +41,7 @@
             :class="{ show: isDropdownOpen }"
           >
             <a class="dropdown-item" href="#" @click="saveData">Save Data</a>
-            <a class="dropdown-item" href="#">Load Data</a>
+            <a class="dropdown-item" href="#" @click="loadData">Load Data</a>
           </div>
         </li>
       </ul>
@@ -52,6 +52,7 @@
 
 <script>
 import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -64,7 +65,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["randomizeStocks"]),
+    ...mapActions({
+      randomizeStocks: "randomizeStocks",
+      fetchData: "loadData"
+    }),
     endDay() {
       this.randomizeStocks();
     },
@@ -75,6 +79,9 @@ export default {
         stocks: this.$store.getters.stocks
       };
       this.$http.put("data.json", data);
+    },
+    loadData() {
+      this.fetchData();
     }
   }
 };
