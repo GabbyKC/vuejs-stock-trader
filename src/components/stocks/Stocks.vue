@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .container {
   padding: 0;
   margin-top: 40px;
